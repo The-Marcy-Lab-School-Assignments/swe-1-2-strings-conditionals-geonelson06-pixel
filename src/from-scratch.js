@@ -74,14 +74,36 @@ const formatName = (first, last) => {
 
 };
 
-const extractDomain = () => {
+const extractDomain = (email) => {
+  const atIndex = email.indexOf("@");
+
+  return email.slice(atIndex + 1);
+}
+
+
+const startsWithVowel = (str) => {
+  if (str.length === 0) {
+    return false;
+  }
+
+  const firstChar = str[0].toLowerCase();
+  return firstChar === 'a' ||
+         firstChar === 'e' ||
+         firstChar === 'i' ||
+         firstChar === 'o' ||
+         firstChar === 'u';
 };
 
-const startsWithVowel = () => {
-};
+const rotate = (str, num) => {
+  if (str.length === 0) return str;
 
-const rotate = () => {
-};
+  num = num % str.length;
+
+  const end = str.slice(-num);
+  const start = str.slice(0, str.length - num);
+  return end + start;
+}
+
 
 module.exports = {
   measureRain,

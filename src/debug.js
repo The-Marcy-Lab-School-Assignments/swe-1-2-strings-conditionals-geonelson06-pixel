@@ -17,7 +17,7 @@ const funkoPopAddictionLevel = (numOfFunkoPops) => {
 };
 
 const returnPositiveNegativeZero = (num) => {
-  return num < 0 ? 'Positive' : num === 0 ? 'Zero' : 'Negative';
+  return num > 0 ? 'Positive' : num < 0 ? 'Negative' : 'Zero';
 };
 
 module.exports = {
