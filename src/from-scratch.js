@@ -1,13 +1,17 @@
 const measureRain = (inches) => {
   if (inches === 0) {
-    return "No rain today!";
-  } else if (inches < 2) {
-    return "Light rain.";
-  } else if (inches < 4) {
-    return "Moderate rain.";
-  } else {
-    return "Heavy rain!";
+    return 'drought';
   }
+  if (inches < 2) {
+    return 'dry';
+  }
+  if (inches < 4) {
+    return 'average';
+  }
+  if (inches < 6) {
+    return 'rainy';
+  }
+  return 'flood';
 
 };
 
@@ -99,10 +103,18 @@ const rotate = (str, num) => {
 
   num = num % str.length;
 
-  const end = str.slice(-num);
-  const start = str.slice(0, str.length - num);
-  return end + start;
-}
+  let result = str;
+
+  for (let i = 0; i < num; i++) {
+    const lastChar = result[result.length - 1];
+    const rest = result.slice(0, result.length - 1);
+    result = lastChar + rest;
+  }
+
+  return result;
+};
+
+
 
 
 module.exports = {
