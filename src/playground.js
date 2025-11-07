@@ -10,3 +10,4 @@ const {
 } = require('./from-scratch');
 
 // Test your functions here!
+measureRain(5)
